@@ -1,31 +1,35 @@
-const gulp         = require('gulp');
-const browserSync  = require('browser-sync').create();
-const sass         = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
+const gulp = require('gulp');
 const pug = require('gulp-pug');
+const sass = require('gulp-sass');
 
-// Compile Sass & Inject Into Browser
-gulp.task('sass', function() {
-    return gulp.src(['src/scss/*.scss'])
-        .pipe(sass())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
+
+//Pug-> HTML
+
+gulp.task('views', function () {
+    return gulp.src('src/*.pug')
+        .pipe(pug({
+            pretty: true
         }))
-        .pipe(gulp.dest("dist/css"))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('dist'))
 });
 
 
-// Watch Sass & Serve
-gulp.task('serve', ['sass'], function() {
-    browserSync.init({
-        server: "./src"  
-    });
+//SCSS-> CSS
 
-    gulp.watch(['src/scss/*.scss'], ['sass']);
-    gulp.watch("index.pug").on('change', browserSync.reload);
+sass.compiler = require('node-sass');
+
+gulp.task('sass', function () {
+    return gulp.src('src/scss/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('dist/css'));
 });
 
-// Default Task
-gulp.task('default', ['serve']);
+gulp.task('sass:watch', function () {
+    gulp.watch('src/scss/*.scss', ['scss']);
+});
+
+//default
+
+gulp.task('default', ['sass', 'sass:watch', 'views'], function () {
+    
+});
