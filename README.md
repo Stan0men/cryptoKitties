@@ -4,7 +4,7 @@
 
 ### To see it
 
-[Link ^_^](https://stan0men.github.io/cryptoKitties/)
+[Link ^_^](https://stan0men.github.io/cryptoKitties/dist/)
 
 ---
 
