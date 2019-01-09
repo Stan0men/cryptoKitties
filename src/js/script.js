@@ -126,14 +126,38 @@ const cats = [
         "updated_at": "2018-02-10T10:40:52.437Z"
     }
 ];
+//Get 1 kitten
+// function  getKitten(cats) {
+//   cats.forEach(({name, price, img_url})=>{
+//       return `
+//        <div class="cat">
+//           <div class="cat__name">Cat name:${name}</div>
+//             <div class="cat__price">Price:${price}$</div>
+//             <div class="cat__img"><img src="${img_url}"/></div>
+//         </div>
+//       `
+//   })
+// }
 
-function renderCats(cats) {
+// From: https://stackoverflow.com/questions/1484506/random-color-generator
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+//Get kitten list
+function getKittenList(cats) {
     return cats.map(({name, price, img_url}) => {
         return `
-        <div class="cat">
-            <div class="cat__name">${name}</div>
-            <div class="cat__price">${price}</div>
-            <div class="cat__img"><img src="${img_url}/></div>
+        <div class="cat" style="background-color: ${getRandomColor()}">
+          <div class="cat__name"><p>Cat name:${name}</p></div>
+            <div class="cat__price"><p>Price:${price}$</p></div>
+            <div class="cat__img"><img src="${img_url}"/></div>
         </div>
         `
     }).join('')
@@ -142,4 +166,4 @@ function renderCats(cats) {
 
 const wrapper = document.querySelector('.wrapper-cats');
 
-wrapper.innerHTML = renderCats(cats);
+wrapper.innerHTML = getKittenList(cats);

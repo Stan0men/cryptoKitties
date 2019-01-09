@@ -1,4 +1,4 @@
-.wrapper-cat {
+.wrapper-cats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,6 +14,14 @@
 }
 
 .cat {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 3px solid lightblue;
   width: 270px;
   height: 300px;
@@ -22,4 +30,5 @@
 
 p {
   text-align: center;
+  margin-bottom: -10px;
 }
