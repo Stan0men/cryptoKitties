@@ -14,7 +14,7 @@
 }
 
 .cat {
-  color: white;
+  color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,13 +22,36 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 3px solid lightblue;
-  width: 270px;
-  height: 300px;
+  border: 5px solid lightblue;
   margin-bottom: 30px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.cat:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.cat__img {
+  margin-bottom: -30px;
+}
+
+.cat .button {
+  width: 60%;
+  height: 40px;
+  margin: 10px auto;
+  background-color: #ffffff;
+  border-radius: 25px;
+  outline: none;
 }
 
 p {
   text-align: center;
   margin-bottom: -10px;
+}
+
+img {
+  width: 270px;
+  height: 300px;
 }

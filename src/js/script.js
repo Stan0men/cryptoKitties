@@ -158,6 +158,7 @@ function getKittenList(cats) {
           <div class="cat__name"><p>Cat name:${name}</p></div>
             <div class="cat__price"><p>Price:${price}$</p></div>
             <div class="cat__img"><img src="${img_url}"/></div>
+            <button class="button">Buy me!</button>
         </div>
         `
     }).join('')
