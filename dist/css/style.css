@@ -24,13 +24,6 @@
           flex-direction: column;
   border: 5px solid lightblue;
   margin-bottom: 30px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.cat:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 .cat__img {
