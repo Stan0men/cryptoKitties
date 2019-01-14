@@ -14,7 +14,7 @@ function getKitten(cat) {
           <div class="cat__name"><p>Cat name:${cat.name}</p></div>
             <div class="cat__price"><p>Price:${cat.price}$</p></div>
             <div class="cat__img"><img src="${cat.img_url}"/></div>
-            <button class="button">Buy me!</button>
+            <button class="cat__button">Buy me!</button>
         </div>
         `
 }
