@@ -24,12 +24,18 @@ function renderKittens(cats) {
         .join('');
 }
 
+let loader= document.getElementById('loader');
+loader.classList.add('loader_opened');
 
 fetch('https://ma-cats-api.herokuapp.com/api/cats?&per_page=12')
     .then(
         function (response) {
             response.json().then(function (cats) {
-                document.querySelector('.wrapper-cats').insertAdjacentHTML("afterbegin", renderKittens(cats.cats));
+                setTimeout((function () {
+                    document.querySelector('.wrapper-cats').insertAdjacentHTML("afterbegin", renderKittens(cats.cats));
+                    loader.classList.remove('loader_opened');
+                }),2000);
+
             });
         }
     );
