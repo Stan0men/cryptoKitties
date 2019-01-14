@@ -8,9 +8,7 @@ function getRandomColor() {
     return color;
 }
 
-
-//Get kitten list
-function getKittenList(cat) {
+function getKitten(cat) {
     return `
         <div class="cat" style="background-color: ${getRandomColor()}">
           <div class="cat__name"><p>Cat name:${cat.name}</p></div>
@@ -21,25 +19,17 @@ function getKittenList(cat) {
         `
 }
 
-function renderKittenList(cats) {
-    return cats.map((cat => getKittenList(cat))).join('');
+function renderKittens(cats) {
+    return cats.map(cat => getKitten(cat))
+        .join('');
 }
 
-// let oReq = new XMLHttpRequest();
-// oReq.onload = reqListener;
-// oReq.open("get", "https://ma-cats-api.herokuapp.com/api/cats", true);
-// oReq.send();
-//
-// function reqListener() {
-//     const cats= JSON.parse(this.responseText);
-//     document.querySelector('.wrapper-cats').innerHTML=getKittenList(cats);
-// }
 
 fetch('https://ma-cats-api.herokuapp.com/api/cats?&per_page=12')
     .then(
         function (response) {
             response.json().then(function (cats) {
-                document.querySelector('.wrapper-cats').innerHTML = getKittenList(cats);
+                document.querySelector('.wrapper-cats').insertAdjacentHTML("afterbegin", renderKittens(cats.cats));
             });
         }
     );
