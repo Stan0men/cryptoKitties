@@ -13,7 +13,7 @@
           justify-content: space-between;
 }
 
-.cat {
+.wrapper-cats .cat {
   color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,11 +26,11 @@
   margin-bottom: 30px;
 }
 
-.cat__img {
+.wrapper-cats .cat__img {
   margin-bottom: -30px;
 }
 
-.cat .button {
+.wrapper-cats .cat .button {
   width: 60%;
   height: 40px;
   margin: 10px auto;
